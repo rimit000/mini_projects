@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>뇌졸중 예측 결과</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-color: #e0f7fa; text-align: center; padding: 50px;">
+
+    <h1 style="font-size: 2.5em; color: #0277bd;">🧠 뇌졸중 위험 예측 결과 🧠</h1>
+
+    <div style="margin-top: 40px; font-size: 1.5em;">
+        {% if prediction == 1 %}
+            <p style="color: red;">⚠️ 뇌졸중 위험이 있습니다! ⚠️</p>
+        {% else %}
+            <p style="color: green;">✅ 뇌졸중 위험이 낮습니다! ✅</p>
+        {% endif %}
+
+        <p>예측된 발병 확률: <strong>{{ probability | round(2) }}%</strong></p>
+
+        <br><br>
+
+        <a href="/" style="font-size: 1.2em; color: white; background-color: #4fc3f7; padding: 10px 20px; border-radius: 10px; text-decoration: none;">홈으로 돌아가기</a>
+    </div>
+
+</body>
+</html>

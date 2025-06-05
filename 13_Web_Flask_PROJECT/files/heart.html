@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>뇌졸중 위험 예측</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        img {
+            width: 300px;
+            margin-top: 10px;
+        }
+        .form-container {
+            background: white;
+            display: inline-block;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+        form input, form select {
+            margin-top: 5px;
+            width: 100%;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 30px;
+            background-color: #4fc3f7;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>🧠 뇌졸중(Stroke) 위험 예측 시스템</h1>
+    <img src="{{ url_for('static', filename='../static/images/stroke.jpg') }}" alt="Stroke Image">
+
+    <div class="form-container">
+        <form method="POST">
+            <label>성별:</label>
+            <select name="gender">
+                <option value="Male">남성</option>
+                <option value="Female">여성</option>
+                <option value="Other">기타</option>
+            </select>
+
+            <label>나이:</label>
+            <input type="number" name="age" required>
+
+            <label>고혈압 여부:</label>
+            <select name="hypertension">
+                <option value="0">없음</option>
+                <option value="1">있음</option>
+            </select>
+
+            <label>심장 질환 여부:</label>
+            <select name="heart_disease">
+                <option value="0">없음</option>
+                <option value="1">있음</option>
+            </select>
+
+            <label>결혼 여부:</label>
+            <select name="ever_married">
+                <option value="Yes">예</option>
+                <option value="No">아니오</option>
+            </select>
+
+            <label>직업 유형:</label>
+            <select name="work_type">
+                <option value="children">어린이</option>
+                <option value="Govt_job">공무원</option>
+                <option value="Private">민간기업</option>
+                <option value="Self-employed">자영업</option>
+                <option value="Never_worked">무직</option>
+            </select>
+
+            <label>거주 유형:</label>
+            <select name="Residence_type">
+                <option value="Urban">도시</option>
+                <option value="Rural">시골</option>
+            </select>
+
+            <label>평균 혈당 수치:</label>
+            <input type="text" name="avg_glucose_level" required>
+
+            <label>BMI (체질량지수):</label>
+            <input type="text" name="bmi" required>
+
+            <label>흡연 여부:</label>
+            <select name="smoking_status">
+                <option value="formerly smoked">예전에 피웠음</option>
+                <option value="never smoked">비흡연자</option>
+                <option value="smokes">현재 흡연자</option>
+                <option value="Unknown">정보 없음</option>
+            </select>
+
+            <button type="submit">예측하기</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
